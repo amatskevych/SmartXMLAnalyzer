@@ -21,7 +21,7 @@ Technologies: jdk 8, maven, git
 Main class: amatskevych.smartxmlanalyzer.App
 
 
-###### Should be installed ###
+##### Should be installed ###
 
 * [jdk 8.101 or higher](www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [maven 3.*](http://maven.apache.org/install.html)
@@ -35,5 +35,5 @@ To build the application, open a root directory and execute the command
 To start the application, run the command 
 
 ```
-java -jar target/smartxmlanalyzer-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+java -jar target/smartxmlanalyzer-0.0.2-SNAPSHOT-jar-with-dependencies.jar
 ```
