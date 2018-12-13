@@ -20,6 +20,7 @@ Technologies: jdk 8, maven, git
 
 Main class: amatskevych.smartxmlanalyzer.App
 
+The searching of elements works via comparison of values of an element value and an attribute "class"
 
 ##### Should be installed ###
 
