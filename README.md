@@ -35,5 +35,12 @@ To build the application, open a root directory and execute the command
 To start the application, run the command 
 
 ```
-java -jar target/smartxmlanalyzer-0.0.2-SNAPSHOT-jar-with-dependencies.jar
+java -jar target/smartxmlanalyzer-jar-with-dependencies.jar <input_origin_file_path> <input_other_sample_file_path> [<attributeId>]
 ```
+```
+Usage: java -jar smartxmlanalyzer-jar-with-dependencies.jar <input_origin_file_path> <input_other_sample_file_path> [<attributeId>]
+ <input_origin_file_path> - origin sample path to find the element with attribute id="make-everything-ok-button" and collect all the required information;
+ <input_other_sample_file_path> - path to diff-case HTML file to search a similar element;
+ <attributeId> - optional, the target element id for collecting the initial information, default value = "make-everything-ok-button"
+```
+

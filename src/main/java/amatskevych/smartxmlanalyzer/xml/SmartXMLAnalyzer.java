@@ -8,23 +8,15 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 public class SmartXMLAnalyzer {
     public static List<SmartXMLElement> findElements(String findId, String firstFileName, String secondFileName) throws FileNotFoundException {
-        URL urlInputFile = ClassLoader.getSystemResource(firstFileName);
-        if (urlInputFile == null) {
-            throw new FileNotFoundException("The file does not exist: " + firstFileName);
-        }
-        File inputFile = new File(urlInputFile.getFile());
-
-        URL urlSecondFile = ClassLoader.getSystemResource(secondFileName);
-        if (urlSecondFile == null) {
-            throw new FileNotFoundException("The file does not exist: " + secondFileName);
-        }
-        File secondFile = new File(urlSecondFile.getFile());
-
+        File inputFile = getFile(firstFileName);
+        File secondFile = getFile(secondFileName);
 
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SmartXmlHandler handlerForInputFile = new SmartXmlHandler(findId, null, null);
@@ -47,5 +39,15 @@ public class SmartXMLAnalyzer {
         }
 
         return null;
+    }
+
+    private static File getFile(String fileName) throws FileNotFoundException {
+        Path filePath = FileSystems.getDefault().getPath(fileName);
+
+        if (Files.notExists(filePath)) {
+            throw new FileNotFoundException("The file does not exist: " + fileName);
+        }
+
+        return filePath.toFile();
     }
 }
